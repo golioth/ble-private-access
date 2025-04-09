@@ -1,0 +1,8 @@
+filter:
+  path: "*"
+  content_type: application/json
+steps:
+  - name: step-0
+    destination:
+      type: lightdb-stream
+      version: v1
