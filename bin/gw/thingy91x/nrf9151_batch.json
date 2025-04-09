@@ -1,0 +1,26 @@
+{
+    "family": "NRF91_FAMILY",
+    "operations": [
+        {
+            "operation": {
+                "type": "recover"
+            }
+        },
+        {
+            "operation": {
+                "type": "program",
+                "firmware": {
+                    "file": "./bin/gw/thingy91x/nrf9151.hex"
+                },
+                "chip_erase_mode": "ERASE_PAGES",
+                "verify": "VERIFY_READ"
+            }
+        },
+        {
+            "operation": {
+                "type": "reset",
+                "option": "RESET_PIN"
+            }
+        }
+    ]
+}

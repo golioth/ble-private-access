@@ -1,0 +1,37 @@
+{
+  "family": "NRF53_FAMILY",
+  "operations": [
+    {
+      "core": "NRFDL_DEVICE_CORE_APPLICATION",
+      "operation": {
+        "firmware": {
+          "file": "./bin/gw/thingy91x/nrf5340_cpuapp.hex"
+        },
+        "type": "program"
+      }
+    },
+    {
+      "core": "NRFDL_DEVICE_CORE_APPLICATION",
+      "operation": {
+        "option": "RESET_DEFAULT",
+        "type": "reset"
+      }
+    },
+    {
+      "core": "NRFDL_DEVICE_CORE_NETWORK",
+      "operation": {
+        "firmware": {
+          "file": "./bin/gw/thingy91x/nrf5340_cpunet.hex"
+        },
+        "type": "program"
+      }
+    },
+    {
+      "core": "NRFDL_DEVICE_CORE_NETWORK",
+      "operation": {
+        "option": "RESET_DEFAULT",
+        "type": "reset"
+      }
+    }
+  ]
+}
