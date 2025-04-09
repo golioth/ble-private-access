@@ -1,0 +1,3 @@
+[submodule "pouch"]
+	path = pouch
+	url = https://github.com/golioth/pouch.git
