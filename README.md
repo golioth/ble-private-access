@@ -254,6 +254,10 @@ under `projects` in the `west.yml` file.
 
 ## Feedback & Support
 
+> [!TIP]
+> Quick answers to frequently asked questions can be found in the
+> [FAQ](./FAQ.md) document.
+
 We are excited to hear from you! Customers enrolled in the private access
 program will be provided with dedicated channels to provide feedback and request
 support. For all other cases, please email
