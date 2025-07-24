@@ -2,10 +2,10 @@
 
 ## How can I perform an OTA firmware update on BLE devices over `pouch`?
 
-For earliest enrollees in the private access program, only device-to-cloud
-capabilities are enabled The program will be expanded with support for
-cloud-to-device communication, and all services will be supported for public
-access.
+Currently, all device-to-cloud communication, and only cloud-to-device settings
+updates, are supported in the private access program. The program will be
+expanded with support for OTA updates, and all services will be supported for
+public access.
 
 Read more about Golioth’s device management services
 [here](https://docs.golioth.io/device-management).

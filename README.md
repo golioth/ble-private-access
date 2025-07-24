@@ -223,8 +223,9 @@ west flash
 ### 4. Exploring Device Networks in the Golioth Console
 
 The gateway will periodically sync the device, delivering data to Golioth on
-behalf of the device. Data will be associated with the originating device, but
-the relationship between the gateway and the device can also be observed.
+behalf of the device, and delivering data to the device on behalf of Golioth.
+Data will be associated with the originating device, but the relationship
+between the gateway and the device can also be observed.
 
 1. Navigate to the `Networks` tab in your Golioth project.
 2. Click on the node that corresponds to the gateway.
@@ -238,9 +239,12 @@ the relationship between the gateway and the device can also be observed.
 
 ### 5. Building Your Own BLE Application
 
-The example application demonstrates a simple case of streaming hardcoded data
-to Golioth. Try collecting real sensor data and streaming it, or program another
-BLE device to observe multiple devices attached to the same gateway.
+The example application demonstrates a simple case of
+[streaming](https://docs.golioth.io/data-routing) hardcoded data to Golioth, and
+receiving [settings](https://docs.golioth.io/device-management/settings/) that
+have yet to be synced. Try updating device settings in the console, collecting
+real sensor data and streaming it, or program another BLE device to observe
+multiple devices attached to the same gateway.
 
 The `pouch` SDK can be added to an existing project by adding the following
 under `projects` in the `west.yml` file.
