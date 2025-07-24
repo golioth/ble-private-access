@@ -200,11 +200,17 @@ west init -l ./pouch
 west update --narrow -o=--depth=1
 ```
 
+5. Install `pouch` dependencies.
+
+```
+pip install -r ./pouch/requirements.txt
+```
+
 > [!NOTE]
 > Zephyr and other libraries will now be present in the `/deps` directory of
 > this repository.
 
-5. Build the example BLE GATT application in the `pouch` SDK, replacing
+6. Build the example BLE GATT application in the `pouch` SDK, replacing
    `REPLACME` with your device's `Device ID`.
 
 ```
@@ -214,7 +220,7 @@ west build -p -b nrf52840dk/nrf52840 pouch/examples/ble_gatt -- -DCONFIG_EXAMPLE
 > If not using the nRF52840 DK, make sure to replace it as the specified board
 > in the command above.
 
-6. Program the device.
+7. Program the device.
 
 ```
 west flash
@@ -223,9 +229,9 @@ west flash
 ### 4. Exploring Device Networks in the Golioth Console
 
 The gateway will periodically sync the device, delivering data to Golioth on
-behalf of the device, and delivering data to the device on behalf of Golioth.
-Data will be associated with the originating device, but the relationship
-between the gateway and the device can also be observed.
+behalf of the device (uplink), and delivering data to the device on behalf of
+Golioth (downlink). Data will be associated with the originating device, but the
+relationship between the gateway and the device can also be observed.
 
 1. Navigate to the `Networks` tab in your Golioth project.
 2. Click on the node that corresponds to the gateway.
@@ -237,14 +243,27 @@ between the gateway and the device can also be observed.
 5. Navigate to the BLE device's LightDB Stream tab to observe its payloads
    streaming to Golioth via the gateway.
 
+The example BLE GATT application in the `pouch` SDK has a settings handler
+registered for a boolean `LED` setting. This allows you to remotely toggle an
+LED on the nRF52840 DK using the Golioth settings service.
+
+1. Navigate to the [`Device
+   Settings`](https://console.golioth.io/device-settings) tab and create a
+   boolean `LED` setting in your Golioth project.
+2. Navigate to your BLE device page, and toggle the value of the setting between
+   `false` and `true`.
+
+On next sync, you should see the nRF52840 turn off (if set to `false`) or on (if
+set to `true`).
+
 ### 5. Building Your Own BLE Application
 
 The example application demonstrates a simple case of
 [streaming](https://docs.golioth.io/data-routing) hardcoded data to Golioth, and
 receiving [settings](https://docs.golioth.io/device-management/settings/) that
-have yet to be synced. Try updating device settings in the console, collecting
-real sensor data and streaming it, or program another BLE device to observe
-multiple devices attached to the same gateway.
+have yet to be synced. Try adding more device settings, collecting real sensor
+data and streaming it, or program another BLE device to observe multiple devices
+attached to the same gateway.
 
 The `pouch` SDK can be added to an existing project by adding the following
 under `projects` in the `west.yml` file.
@@ -252,7 +271,7 @@ under `projects` in the `west.yml` file.
 ```
     - name: pouch
       path: modules/lib/pouch
-      revision: ed81c7d88d48b40519dc4a32d978618c85e44180
+      revision: 6de6f17dca55890d91f671c68a5096a5b7785abf
       url: https://github.com/golioth/pouch.git
 ```
 
