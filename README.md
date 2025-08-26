@@ -1,9 +1,9 @@
 # Bluetooth Private Access
 
 > [!CAUTION]
-> Enrollment in the private access program is required to complete this
-> onboarding guide. Complete [this
-> form](https://hslp.golioth.io/bluetooth-cloud-early-access) to apply.
+> This repository is archived and Bluetooth support on Golioth is now availabe
+> to all users. Find out how to get started in the
+> [documentation](https://docs.golioth.io/connectivity/protocols/bluetooth).
 
 ![Gateway Device Page](./assets/gateway_device_page.png)
 
